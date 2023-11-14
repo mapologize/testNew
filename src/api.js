@@ -5,6 +5,8 @@ const app = express();
 const router = express.Router();
 
 router.get('/', (req,res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
     res.json({
         'Hello!': 'welcome to MooMooh.io NFT API'
     });
