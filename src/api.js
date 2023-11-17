@@ -5,6 +5,7 @@ const app = express();
 const router = express.Router();
 
 router.get('/', (req,res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://moomooh.io/');
     res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
     res.json({
         'Hello!': 'welcome to MooMooh.io NFT API'
@@ -16,6 +17,7 @@ router.get('/mooc2/metadata/:tokenid', (req,res) => {
     const mod = tokenid % 1000;
     const infoId = parseInt(tokenid) + parseInt(1);
     const infoImage = parseInt(mod) + parseInt(1);
+    res.setHeader('Access-Control-Allow-Origin', 'https://moomooh.io/');
     res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
     res.json({
         "image": 'ipfs://QmSfV3X1KUtpjDaz7ruWrCQmxjvuncWb5wdaPHDQZtBBRf/' + infoImage + '.png',
