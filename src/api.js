@@ -14,11 +14,8 @@ router.get('/', (req,res) => {
 
 router.get('/mooc1/metadata/:tokenid', (req,res) => {
   const tokenid = req.params.tokenid;
-  const mod = tokenid % 1000;
-  const infoId = parseInt(tokenid) + parseInt(1);
-  const infoImage = parseInt(mod) + parseInt(1);
   let ipfsPart = "";
-  if(tokenid<1801){
+  if(tokenid<=1800){
     ipfsPart = "QmSW2fMVyjrfxRQTjSDg1ktHJpGYppsNe5QE3VNaCmqgVj";
   }else{
     ipfsPart = "QmduWNQnZH3bff9DWxtZmMuxj7HYpXPx1BWUUz9ek6ks3a";
@@ -26,8 +23,8 @@ router.get('/mooc1/metadata/:tokenid', (req,res) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://moomooh.io');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.json({
-      "image": 'ipfs://'+ ipfsPart +'/' + infoImage + '.png',
-      "name": 'MooMooh NFT #' + infoId,
+      "image": 'ipfs://'+ ipfsPart +'/' + tokenid + '.png',
+      "name": 'MooMooh NFT #' + tokenid,
       "external_url": "",
       "description": "Playing Oracle NFT with MooMooh.io",
       "attributes": [
