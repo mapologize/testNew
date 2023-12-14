@@ -13,9 +13,11 @@ router.get('/', (req,res) => {
 });
 
 router.get('/mooc1/metadata/:tokenid', (req,res) => {
-  const tokenid = req.params.tokenid;
-  if(tokenid.substring(tokenid.length-5,tokenid.length)==".json"){
-    tokenid = substring(0,tokenid.length-5);
+  let tokenid = req.params.tokenid;
+  const finalPart = tokenid.substring(String(tokenid).length,String(tokenid).length-5);
+  console.log(finalPart);
+  if(finalPart==".json"){
+    tokenid = tokenid.substring(0,String(tokenid).length-5);
   }
   console.log(tokenid);
   let ipfsPart = "";
